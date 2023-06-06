@@ -1,5 +1,11 @@
+/*! program to demonstrate the effects
+ *  of buffer overflow
+ */
 #include <stdio.h>
 
+/*! function which copies source string
+ *  to destination string
+ */
 int copy_string(char *src_str, char *dest_str)
 {
     int copied_len;

@@ -48,8 +48,8 @@ unsigned char bitarray_to_char(char *bitmask)
     int i;
     unsigned int charvalue = 0;
     unsigned int powvalue;
-
-    for(i=0;i<8;i++) {
+/* bits are stored from MSB to LSB in array */
+    for(i=7;i>=0;i--) {
 	powvalue = power_of_two(i);
     	charvalue += (*bitmask++)*(powvalue);
     }
@@ -57,12 +57,13 @@ unsigned char bitarray_to_char(char *bitmask)
     return (unsigned char)charvalue;
 }
 
+char bitmask[8];
+
 int main(void)
 {
-    unsigned char a;
-    char bitmask[8] = {0};
+    unsigned int a;
     int i;
-    unsigned char result;
+    unsigned int result;
 
     printf("Enter any number:\n");
     scanf("%d", &a);

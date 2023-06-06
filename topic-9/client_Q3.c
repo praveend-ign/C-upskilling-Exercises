@@ -1,3 +1,6 @@
+/*! client program to demonstrate network byte ordering 
+ * and endianness conversion
+ */
 #include <arpa/inet.h>
 #include <stdio.h>
 #include <stdlib.h>

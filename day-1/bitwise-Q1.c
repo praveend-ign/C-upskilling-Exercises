@@ -8,13 +8,14 @@ void print_binary(int num)
     int skip_flag;
 
     i = 0;
-    while (num > 0) {
+    while (i < 32) {
        if (num & 1)
 	       bit_arr[i] = 1;
        else
 	      bit_arr[i] = 0;
        num = num >> 1;
        i++;
+       printf("bit arr = %d\n", bit_arr[i]);
     }
     skip_flag = 1;
     for(i=31;i>=0;i--) {
@@ -39,7 +40,9 @@ int main(void)
     int bitpos1, bitpos2;
 
     printf("Enter any 32-bit integer number\n");
-    scanf("%d", &number);
+    scanf("%x", &number);
+    printf("number is = %d\n", number);
+    printf("number in hex is = %x\n", number);
     printf("binary representation of the number is \n");
     print_binary(number);
     printf("Enter any two bit positions between 0 and 31\n");

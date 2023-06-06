@@ -1,4 +1,6 @@
 #include <stdio.h>
+/* take input two integers and calculate the float type average 
+ * of two integers using implicit typecasting */
 
 int main(void)
 {
@@ -9,9 +11,9 @@ int main(void)
     scanf("%d", &num1);
     scanf("%d", &num2);
 
-    average = (float)(num1 + num2)/(float)2;
+    average = (num1 + num2)/2.0;
 
-    printf("average of two nums = %f\n", average);
+    printf("average of two nums = %.2f\n", average);
 
     return 0;
 }

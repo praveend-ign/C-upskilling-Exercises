@@ -48,7 +48,7 @@ int main(void)
      printf("float num = %f\n", ghi);
      jkl.fltnum = ghi;
      printf("float num in union = %f\n", ghi);
-     jkl.dec = (unsigned int)ghi;
+     //jkl.dec = (unsigned int)ghi;
      printf(" integer value of float = %d\n", jkl.dec);
      print_binary(jkl.dec);
      return 0;

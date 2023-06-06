@@ -1,3 +1,6 @@
+/*! server program for network byte
+ *  ordering and endianness conversion
+ */
 #include <stdio.h>
 #include <netinet/in.h>
 #include <stdlib.h>

@@ -1,5 +1,9 @@
+/*! program to convert little endian 
+ *  to bigendian or vice-versa
+ */
 #include <stdio.h>
 
+/*! function to reverse byte ordering */
 unsigned int swap_bytes(unsigned int word)
 {
     unsigned int result;

@@ -1,3 +1,7 @@
+/*! program to demonstrate the use of semaphore
+ *  feature to protect the resource shared
+ *  by muliptle processes
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -16,8 +20,6 @@ union semun {
     struct semid_ds *buf;
     unsigned short  *array;
 };
-
-
 
 #define MAX_SIZE		10
 #define RANDOM_INT_RANGE	5000
@@ -53,6 +55,7 @@ int main()
     int mutex_id;
     int empty_count, fill_count;
     int i, j;
+    int status;
 
     array_index = 0;
     array_print_index = 0;
@@ -79,7 +82,7 @@ int main()
      *  value of 0 indicates zero array elements of random_data  
      *  available initially
      */
-    fillcount_u.val = 0;
+    fillcount_u.val = MAX_SIZE;
     fill_count = create_semaphore(FILL_COUNT_KEY, fillcount_u);
     if(fill_count < 0) {
 	return -1;
@@ -112,27 +115,28 @@ int main()
         	for(i = 0; i < MAX_SIZE; ++i)
         	{
 			p.sem_op = -1;
+	   		/*if(semop(mutex_id, &p, 1) < 0)
+            		{
+                		perror("semop p 2");
+				return -1;
+            		}*/
+			p.sem_op = -1;
 			if(semop(empty_count, &p, 1) < 0)
             		{
                 		perror("semop p 1");
 				return -1;
             		}
-			p.sem_op = -1;
-	   		if(semop(mutex_id, &p, 1) < 0)
-            		{
-                		perror("semop p 2");
-				return -1;
-            		}
+
 			j = array_index;
 			array_index++;
 			if(array_index == MAX_SIZE)
 				array_index = 0;
 			v.sem_op = 1;
-			if(semop(mutex_id, &v, 1) < 0)
+			/*if(semop(mutex_id, &v, 1) < 0)
             		{
                 		perror("semop v 3");
 				return -1;
-            		}
+            		}*/
             		random_data[j] = rand() % RANDOM_INT_RANGE;
 			printf(":%d ", random_data[i]);
 			v.sem_op = 1;
@@ -155,28 +159,28 @@ int main()
 	
         for(i = 0; i < MAX_SIZE; ++i)
         {
+	    /*p.sem_op = -1;
+	    if(semop(mutex_id, &p, 1) < 0)
+            {
+                perror("semop p");
+                return -1;
+            }*/
 	    p.sem_op = -1;
 	    if(semop(fill_count, &p, 1) < 0)
             {
                 perror("semop p 5");
                 return -1;
             }
-	    p.sem_op = -1;
-	    if(semop(mutex_id, &p, 1) < 0)
-            {
-                perror("semop p");
-                return -1;
-            }
             printf("\t%d", random_data[array_print_index]);
 	    array_print_index++;
 	    if(array_print_index == MAX_SIZE)
 		    array_print_index = 0;
-	    v.sem_op = 1;
+	    /*v.sem_op = 1;
 	    if(semop(mutex_id, &v, 1) < 0)
             {
                 perror("semop v");
                 return -1;
-            } 
+            }*/ 
 	    v.sem_op = 1;
 	    if(semop(empty_count, &v, 1) < 0)
             {
@@ -185,9 +189,9 @@ int main()
             }
             //sleep(1);
         }
-	
     }
-    
+    wait(&status);
+    wait(&status);
     if(semctl(mutex_id, 0, IPC_RMID, mutex_union) == -1)
 	   printf("failed to delete mutex semaphore\n");
     

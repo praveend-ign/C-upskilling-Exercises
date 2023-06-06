@@ -1,0 +1,213 @@
+        -:    0:Source:st.c
+        -:    1:#include <stdlib.h>
+        -:    2:#include "item.h"
+        -:    3:#include "st.h"
+        -:    4:
+        -:    5:#include <stdio.h>
+        -:    6:
+        -:    7:typedef struct STnode *link;
+        -:    8:struct STnode {
+        -:    9:	Item item;
+        -:   10:	link l;
+        -:   11:	link r;
+        -:   12:	int N;
+        -:   13:};
+        -:   14:static link head, z;
+        -:   15:
+       21:   16:link NEW(Item item, link l, link r, int N) {
+       21:   17:	link x = malloc(sizeof(*x));
+       21:   18:	x->item = item;
+       21:   19:	x->l = l;
+       21:   20:	x->r = r;
+       21:   21:	x->N = N;
+       21:   22:	return x;
+        -:   23:}
+        -:   24:
+       37:   25:link STrotR(link h) {
+       37:   26:	link x = h->l;
+       37:   27:	h->l = x->r;
+       37:   28:	x->r = h;
+        -:   29:
+       37:   30:	h->N = h->r->N + h->l->N + 1;
+       37:   31:	x->N = x->r->N + x->l->N + 1;
+        -:   32:	
+       37:   33:	return x;
+        -:   34:}
+        -:   35:
+       35:   36:link STrotL(link h) {
+       35:   37:	link x = h->r;
+       35:   38:	h->r = x->l;
+       35:   39:	x->l = h;
+        -:   40:
+       35:   41:	h->N = h->r->N + h->l->N + 1;
+       35:   42:	x->N = x->r->N + x->l->N + 1;
+        -:   43:	
+       35:   44:	return x;
+        -:   45:}
+        -:   46:
+        1:   47:link STpartR(link h, int k) {
+        1:   48:	int t = h->l->N;
+        -:   49:	
+        1:   50:	if (t > k) {
+    #####:   51:		h->l = STpartR(h->l, k);
+    #####:   52:		h = STrotR(h);
+        -:   53:	}
+        -:   54:	
+        1:   55:	if (t < k) {
+    #####:   56:		h->r = STpartR(h->r, k-t-1);
+    #####:   57:		h = STrotL(h);
+        -:   58:	}
+        -:   59:	
+        1:   60:	return h;
+        -:   61:}
+        -:   62:
+        1:   63:link STjoinLR(link a, link b) {
+        1:   64:	if (b == z) {
+    #####:   65:		return a;
+        -:   66:	}
+        -:   67:	
+        1:   68:	b = STpartR(b, 0);
+        1:   69:	b->l = a;
+        -:   70:	
+        1:   71:	b->N = b->r->N + b->l->N + 1;
+        -:   72:	
+        1:   73:	return b;
+        -:   74:}
+        -:   75:
+        1:   76:void STinit(void) {
+        1:   77:	head = (z = NEW(NULLitem, 0, 0, 0));
+        1:   78:}
+        -:   79:
+        2:   80:int STcount(void) {
+        2:   81:	return head->N;
+        -:   82:}
+        -:   83:
+        5:   84:Item STsearchR(link h, Key v) {
+        -:   85:	Key t;
+        -:   86:	
+        5:   87:	if (h == z) {
+        1:   88:		return NULLitem;
+        -:   89:	}
+        -:   90:	
+        4:   91:	t = key(h->item);
+        -:   92:	
+        4:   93:	if (eqkey(v, t)) {
+    #####:   94:		return h->item;
+        -:   95:	}
+        -:   96:	
+        4:   97:	if (lesskey(v, t)) {
+        2:   98:		return STsearchR(h->l, v);
+        -:   99:	} else {
+        2:  100:		return STsearchR(h->r, v);
+        -:  101:	}
+        -:  102:}
+        -:  103:
+        1:  104:Item STsearch(Key v) {
+        1:  105:	return STsearchR(head, v);
+        -:  106:}
+        -:  107:
+       92:  108:link STinsertR(link h, Item item) {
+        -:  109:	Key v;
+        -:  110:	
+       92:  111:	if (h == z) {
+       20:  112:		return NEW(item, z, z, 1);
+        -:  113:	}
+        -:  114:	
+       72:  115:	v = key(item);
+        -:  116:
+       72:  117:	if (lesskey(v, key(h->item))) {
+       37:  118:		h->l = STinsertR(h->l, item);
+       37:  119:		(h->N)++;
+       37:  120:		h = STrotR(h);
+        -:  121:	} else {
+       35:  122:		h->r = STinsertR(h->r, item);
+       35:  123:		(h->N)++;
+       35:  124:		h = STrotL(h);
+        -:  125:	}
+        -:  126:	
+       72:  127:	return h;
+        -:  128:}
+        -:  129:
+       20:  130:void STinsert(Item item) {
+       20:  131:	head = STinsertR(head, item);
+       20:  132:}
+        -:  133:
+        2:  134:Item STselectR(link h, int k) {
+        -:  135:	int t;
+        -:  136:	
+        2:  137:	if (h == z) {
+    #####:  138:		return NULLitem;
+        -:  139:	}
+        -:  140:	
+       2*:  141:	t = (h->l == z) ? 0 : h->l->N;
+        -:  142:	
+        2:  143:	if (t > k) {
+        1:  144:		return STselectR(h->l, k);
+        -:  145:	}
+        -:  146:	
+        1:  147:	if (t < k) {
+    #####:  148:		return STselectR(h->r, k-t-1);
+        -:  149:	}
+        -:  150:	
+        1:  151:	return h->item;
+        -:  152:}
+        -:  153:
+        1:  154:Item STselect(int k) {
+        1:  155:	return STselectR(head, k);
+        -:  156:}
+        -:  157:
+        2:  158:link STdeleteR(link h, Key v) {
+        2:  159:	int p = 0;
+        -:  160:	link x;
+        2:  161:	Key t = key(h->item);
+        -:  162:	
+        2:  163:	if (h == z) {
+    #####:  164:		return z;
+        -:  165:	}
+        -:  166:	
+        2:  167:	if (lesskey(v, t)) {
+        1:  168:		if (h->l != z) {
+        1:  169:			p = 1;
+        -:  170:		}
+        1:  171:		h->l = STdeleteR(h->l, v);
+       1*:  172:		if (h->l != z || (p == 1 && h->l == z)) {
+        1:  173:			--(h->N);
+        -:  174:		}
+        -:  175:	}
+        -:  176:	
+        2:  177:	if (lesskey(t, v)) {
+    #####:  178:		if (h->r != z) {
+    #####:  179:			p = 1;
+        -:  180:		}
+    #####:  181:		h->r = STdeleteR(h->r, v);
+    #####:  182:		if (h->r != z || (p == 1 && h->r == z)) {
+    #####:  183:			--(h->N);
+        -:  184:		}
+        -:  185:	}
+        -:  186:	
+        2:  187:	if (eqkey(v, t)) {
+        1:  188:		x = h;
+        1:  189:		h = STjoinLR(h->l, h->r);
+        1:  190:		free(x);
+        -:  191:	}
+        -:  192:	
+        2:  193:	return h;
+        -:  194:}
+        -:  195:
+        1:  196:void STdelete(Key v) {
+        1:  197:	head = STdeleteR(head, v);
+        1:  198:}
+        -:  199:
+    #####:  200:void STsortR(link h, void (*visit)(Item)) {
+    #####:  201:	if (h == z) {
+    #####:  202:		return;
+        -:  203:	}
+        -:  204:	
+    #####:  205:	STsortR(h->l, visit);
+    #####:  206:	visit(h->item);
+    #####:  207:	STsortR(h->r, visit);
+        -:  208:}
+        -:  209:
+    #####:  210:void STsort(void (*visit)(Item)) {
+    #####:  211:	STsortR(head, visit);
+    #####:  212:}

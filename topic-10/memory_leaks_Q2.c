@@ -1,6 +1,14 @@
+/*! program to demonstrate the 
+ *  effects of memory leaks and
+ *  memory corruption
+ */
 #include <stdio.h>
 #include <stdlib.h>
 
+/*! function to allocate an
+ *  array with the given size
+ *  of the array
+ */
 void *create_array(int size)
 {
     int *array_ptr;
@@ -13,6 +21,9 @@ void *create_array(int size)
     return array_ptr;
 }
 
+/*! initialize the array elements with
+ *  with some values
+ */
 void fill_array(int *ptr, int array_len)
 {
     int i;
@@ -22,6 +33,9 @@ void fill_array(int *ptr, int array_len)
     }
 }
 
+/*! print the array elements of an
+ *  array
+ */
 void print_array(int *ptr, int array_size)
 {
     int i;

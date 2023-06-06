@@ -1,0 +1,68 @@
+        -:    0:Source:list.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "item.h"
+        -:    4:#include "list.h"
+        -:    5:
+       11:    6:link NEW(item key, link next) {
+       11:    7:	link x = malloc(sizeof(*x));
+       11:    8:	x->key = key;
+       11:    9:	x->next = next;
+       11:   10:	return x;
+        -:   11:}
+        -:   12:
+       45:   13:void list_compexch(link a, link b) {
+        -:   14:	link t;
+       45:   15:	if (item_less(b->next->key, a->next->key)) {
+       10:   16:		t = b->next;
+       10:   17:		b->next = b->next->next;
+       10:   18:		t->next = b;
+       10:   19:		a->next = t;
+        -:   20:	}
+       45:   21:}
+        -:   22:
+        1:   23:link list_init(int N) {
+        -:   24:	int i;
+        -:   25:	link x;
+        -:   26:	
+        1:   27:	x = NEW(item_rand(), NULL);
+        -:   28:
+       10:   29:	for (i = 1; i < N; ++i) {
+        9:   30:		x = NEW(item_rand(), x);
+        -:   31:	}
+        -:   32:	
+        1:   33:	x = NEW(item_dummy(), x);
+        -:   34:	
+        1:   35:	return x;
+        -:   36:}
+        -:   37:
+        2:   38:void list_show(link h) {
+        -:   39:	
+       22:   40:	for (; h->next != NULL; h = h->next) {
+       20:   41:		item_show(h->next->key);
+        -:   42:	}
+        -:   43:	
+        2:   44:	printf("\n");
+        2:   45:}
+        -:   46:
+        1:   47:link list_sort(link h) {
+        1:   48:	link x, t, out = NULL;
+        -:   49:	
+       11:   50:	while (h->next != NULL) {
+       55:   51:		for (x = h; x->next != NULL; x = x->next) {
+       55:   52:			if (x->next->next == NULL) {
+       10:   53:				t = x->next;
+       10:   54:				x->next = NULL;
+       10:   55:				t->next = out;
+       10:   56:				out = t;
+       10:   57:				break;
+        -:   58:			} else {
+       45:   59:				list_compexch(x, x->next);
+        -:   60:			}
+        -:   61:		}
+        -:   62:	}
+        -:   63:	
+        1:   64:	h->next = out;
+        -:   65:	
+        1:   66:	return h;
+        -:   67:}

@@ -107,10 +107,10 @@ int main(void)
     printf("waiting for threads to finish\n");
     ret = pthread_join(thread_one, &thread_result);
     if(ret != 0)
-	perror("producer thread joined");
+	perror("producer thread join");
     ret = pthread_join(thread_two, NULL);
     if(ret != 0)
-        perror("consumer thread joined");
+        perror("consumer thread join");
     mq_close(prod_mq);
     mq_close(cons_mq);
     mq_unlink((char *)thread_result);

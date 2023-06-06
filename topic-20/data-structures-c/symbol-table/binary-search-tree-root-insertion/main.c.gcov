@@ -1,0 +1,49 @@
+        -:    0:Source:main.c
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include <time.h>
+        -:    4:#include "item.h"
+        -:    5:#include "st.h"
+        -:    6:
+        -:    7:#define N 20
+        -:    8:#define MAXKEY 100
+        -:    9:
+        1:   10:int main(void) {
+        -:   11:	int i;
+        -:   12:	Item x;
+        -:   13:	
+        1:   14:	srand(time(NULL));
+        -:   15:
+        1:   16:	STinit();
+        -:   17:	
+       21:   18:	for (i = 0; i < N; ++i) {
+       20:   19:		x = malloc(sizeof(*x));
+       20:   20:		x->key = rand() % MAXKEY;
+       20:   21:		x->data = rand() % 1000;
+       20:   22:		STinsert(x);
+        -:   23:	}
+        -:   24:	
+        -:   25:	
+        1:   26:	printf("Current count: %i\n", STcount());
+        -:   27:	
+        1:   28:	x = STselect(10);
+        -:   29:	
+        1:   30:	printf("10th smallest key is %i\n", x->key);
+        -:   31:	
+        1:   32:	printf("Deleting key %i\n", x->key);
+        -:   33:	
+        1:   34:	STdelete(x->key);
+        -:   35:	
+        1:   36:	x = STsearch(x->key);
+        -:   37:	
+        1:   38:	if (x == NULLitem) {
+        1:   39:		printf("Key no longer exists\n");
+        -:   40:	} else {
+    #####:   41:		printf("Duplicate key still exists\n");
+        -:   42:	}
+        -:   43:	
+        -:   44:	
+        1:   45:	printf("Current count: %i\n", STcount());
+        -:   46:	
+        1:   47:	return 0;
+        -:   48:}

@@ -1,0 +1,19 @@
+        -:    0:Source:item.c
+        -:    0:Graph:item.gcno
+        -:    0:Data:item.gcda
+        -:    0:Runs:1
+        -:    1:#include <stdio.h>
+        -:    2:#include <stdlib.h>
+        -:    3:#include "item.h"
+        -:    4:
+       50:    5:item item_rand(void) {
+       50:    6:	return rand() % 100;
+        -:    7:}
+        -:    8:
+        1:    9:item item_dummy(void) {
+        1:   10:	return 0;
+        -:   11:}
+        -:   12:
+      100:   13:void item_show(item x) {
+      100:   14:	printf("%i ", x);
+      100:   15:}

@@ -1,7 +1,14 @@
+/*! program to demostrate the effests
+ *  of NULL pointer and dangling pointer
+ *  access
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/*! function which prints the
+ *  string given as a parameter
+ */
 void print_string(char *str)
 {
     printf("%s\n", str);
