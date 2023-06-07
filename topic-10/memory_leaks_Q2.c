@@ -58,11 +58,27 @@ int main(void)
     fill_array(array_ptr, size);
     print_array(array_ptr, size);
 
-    /*! out of bound array access */
-    print_array(array_ptr, 20*size);
+    /*! allocate array with different sizes */
+    size = 2*size;
+    array_ptr = create_array(size);
+    fill_array(array_ptr, size);
+    print_array(array_ptr, size);
 
-    /*! invalid memory access */
-    print_array((int *)0x57891023426, size);
+    size = 3*size;
+    array_ptr = create_array(size);
+    fill_array(array_ptr, size);
+    print_array(array_ptr, size);
+
+    size = 4*size;
+    array_ptr = create_array(size);
+    fill_array(array_ptr, size);
+    print_array(array_ptr, size);
+
+/*! gdb command := x/200b ptr-20 
+ *  prints the heap memory address of ptr
+ *  with difference of 20 bytes before and
+ *  after the ptr address 
+ */    
 
     return 0;
 }

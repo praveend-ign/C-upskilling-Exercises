@@ -23,8 +23,8 @@ int copy_string(char *src_str, char *dest_str)
 
 int main(void)
 {
-    char array1[10] = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', '\0'};
-    char array2[5] = {0};
+    char array1[10] = "abcdefghijklmnop";
+    char array2[5];
     int i;
     int len;
 
@@ -32,6 +32,11 @@ int main(void)
     len = copy_string(array1, array2);
     printf("number of bytes copied = %d\n", len);
     printf("array2 = %s\n", array2);
-
+/*! stack smashing detected error is displayed
+ *  if array1 is declared as char *
+ *  otherwise no overflow is detected for
+ *  char array1[10] declaration but 10 bytes
+ *  are only copied 
+ */
     return 0;
 }

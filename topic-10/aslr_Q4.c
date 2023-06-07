@@ -6,7 +6,7 @@
  * and observe how secret() function could be executed
  * without actually calling it. By enabling address space
  * layout randomization, above flaw can be overcome
- * */
+ */
 
 void vulnerable(char *str)
 {
@@ -26,7 +26,6 @@ void secret(void)
 
 int main(int argc, char *argv[])
 {
-
     if(argc < 2) {
 	printf("enter any string as an argument\n");
 	return -1;
@@ -38,6 +37,8 @@ int main(int argc, char *argv[])
      *  then stack smashing detected exception occurs
      */
     printf("entered string is %s\n", argv[1]);
+    printf("vulnerable fn addr = %p\n", vulnerable);
+    printf("secret fn addr = %p\n", secret);
     vulnerable(argv[1]);
     return 0;
 }
