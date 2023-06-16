@@ -1,0 +1,44 @@
+Memory corruption :-
+======================
+
+Memory corruption can be described as the vulnerability that may occur 
+when its memory is altered without an explicit assignment. 
+The contents of a memory location are modified due to programming errors
+
+memory corruption occurs due to writing bad data by some thread or 
+a part of application to the memory owned by other thread or other parts 
+of application, which might not cause crash. when other part of application
+or thread access the bad data written, it changes its state in an
+unpredictable and undefined behaviour, such as processing wrong
+instructions, or show incorrect data.
+
+array elements accessed beyond the array limit also cause memory corruption.
+Exploitation can be stopped by preventing stack, heap and integer
+overflows. stack overflows are the most common cause of memory corruption.
+
+
+
+Buffer overflows :-
+====================
+
+A buffer overflow occurs when the size of information written to a memory location 
+exceeds what it was allocated. This can cause data corruption, program crashes, or 
+even the execution of malicious code.
+
+example of buffer overflow -
+
+int main(void)
+{
+    int array[12];
+    int i;
+
+    for(i=0;i<14;i++) {
+	array[i] = i*5;
+    }
+    return 0;
+}
+
+in the above example, buffer overflow happens but program may not 
+crash depending on the system.
+
+
