@@ -1,14 +1,20 @@
+#! python program to transmit data encrypted with
+#  crc-16 algorithm to the virtual uart device
 import string
 import random
 import time
 import signal
 import sys
 
+# signal handler function to close uart device
+# when user interrupts the program to exit
 def sig_handler(sig, frame):
     print("signal received closing uartport")
-    close(uartport)
+    uartport.close()
     sys.exit(0)
 
+# function to extract payload or add crc-16 to the
+# payload when polynomial is given
 def crc(data_without_crc: bytes, poly=0x8408):
     '''
     CRC-16-CCITT algorithm
@@ -28,13 +34,16 @@ def crc(data_without_crc: bytes, poly=0x8408):
 
     return crc & 0xFFFF
 
+# starting the program execution from here
 with open("/dev/ttyAB0", "wb") as uartport:
     sequence_num = 0
     signal.signal(signal.SIGINT, sig_handler)
     while True:
+        # transmit 12 bytes of alphanumeric string
         payload = ''.join(random.choices(string.ascii_lowercase + string.digits, k=12))
         length = len(payload)
-        packet_type = 0x2654 
+        # create some packet type to add to the data
+        packet_type = 0x2654
         sequence_num = sequence_num + 1
         header = packet_type + length + sequence_num
         header_in_bytes = header.to_bytes(4, byteorder='little')
@@ -45,5 +54,4 @@ with open("/dev/ttyAB0", "wb") as uartport:
         uartport.write(data)
         print(data)
         time.sleep(1)
-
 

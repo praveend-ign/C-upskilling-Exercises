@@ -78,6 +78,7 @@ void sig_handler(int sig)
 	printf("received signal closing fd\n");
 	if(fd > 0)
 		close(fd);
+	exit(0);
 }
 
 int main(void)
@@ -102,6 +103,7 @@ int main(void)
     while(1) {
     	bytes_read = read(fd, read_buf, MAX_DATA_SIZE);
 	if(bytes_read > 0) {
+		printf("num of bytes read = %d\n", bytes_read);
 		process_data(bytes_read);
 	} else if(bytes_read < 0) {
 		perror("read failed");
