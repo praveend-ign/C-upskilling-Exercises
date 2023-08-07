@@ -1,0 +1,95 @@
+
+Ada and SPARK are programming languages that are especially applicable 
+in systems demanding high confidence in software reliability, safety, 
+and security.
+ 
+             Ada                                             Spark
+Ada is a general-purpose language, like           SPARK is a specialized subset of Ada designed
+C++ or Java, supporting the usual features        to facilitate the use of formal methods, so that
+of modern programming languages, such as          correctness of software or other program properties 
+data encapsulation, object orientation,           can be guaranteed 
+templates (called “generics”), exceptions, 
+and tasking
+
+One of Ada’s most prominent characteristics	  The latest version of SPARK is a subset of Ada 2012 
+is a strong and powerful type system. Ada 	  and allows several forms of static verification. in
+supports a wide range of user-defined types.      particular, the software developer can specify how
+						  information should flow through variables in the 
+						  program and define functional properties about the
+						  program’s behavior.
+
+https://www.electronicdesign.com/technologies/embedded/software/article/21801107/adacore-whats-the-difference-between-ada-and-spark
+
+Q) what are two forms of static analysis that spark tools perform -
+
+flow analysis and proof
+
+flow analysis is the fastest form of analysis. It checks initializations 
+of variables and looks at data dependencies between inputs and outputs of 
+subprograms. It can also find unused assignments and unmodified variables
+
+proof checks for the absence of runtime errors as well as the conformance 
+of the program with its specifications. 
+
+Q) How does spark use aspects to specify subprogram contracts,
+   global contracts and depends contracts -
+
+Version 2012 of Ada introduced the use of aspects, which can be used 
+for subprogram contracts, and version 2014 of SPARK added its own aspects 
+to further aid static analysis.
+
+simple example of a subprogram in Ada that uses SPARK aspects to specify 
+verifiable subprogram contracts. The subprogram, called Increment, 
+adds 1 to the value of its parameter X:
+
+procedure Increment
+  (X : in out Integer)
+with
+  Global  => null,
+  Depends => (X => X),
+  Pre     => X < Integer'Last,
+  Post    => X = X'Old + 1;
+
+The contracts are written using the Ada aspect feature and those shown specify 
+several properties of this subprogram:
+
+The SPARK Global aspect says that Increment does not read or write any global 
+variables.
+
+The SPARK Depend aspect is especially interesting for security: it says that 
+the value of the parameter X after the call depends only on the (previous) 
+value of X.
+
+The Pre and Post aspects of Ada specify functional properties of Increment:
+
+Increment is only allowed to be called if the value of X prior to the call is 
+less than Integer'Last. This ensures that the addition operation performed in 
+the subprogram body doesn't overflow.
+
+Increment does indeed perform an increment of X: the value of X after a call 
+is one greater than its value before the call.
+
+Q) How does spark handle runtime errors, exceptions and initialization of local
+   variables -
+
+runtime errors are handled by GNATprove. GNATprove does analyses so that
+runtime errors are avoided.
+exceptions are also handled by GNATprove
+
+Q) How does spark support state abstraction, ghost code, loop invariants -
+
+State abstraction allows us to:
+
+express dependencies that wouldn't otherwise be expressible because some data 
+that's read or written isn't visible at the point where a subprogram is declared 
+— examples are dependencies on data, for which we use the Global contract, and on 
+flow, for which we use the Depends contract.
+
+reduce the number of variables that need to be considered in flow analysis and proof, 
+a reduction which may be critical in order to scale the analysis to programs 
+with thousands of global variables.
+
+https://blog.adacore.com/spark-2014-rationale-ghost-code
+
+
+

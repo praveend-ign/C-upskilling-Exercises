@@ -1,0 +1,23 @@
+
+Q) How can you identify the valid and invalid equivalence classes
+   and boundary values for a given input or output domain of an
+   embedded software component or system -  
+
+In equivalence partitioning, equivalence classes are evaluated for 
+given input conditions. Whenever any input is given, then type of 
+input condition is checked, then for this input conditions, 
+Equivalence class represents or describes set of valid or invalid states. 
+
+Guidelines for Equivalence Partitioning : 
+
+1) If the range condition is given as an input, then one valid and 
+   two invalid equivalence classes are defined. 
+2) If a specific value is given as input, then one valid and 
+   two invalid equivalence classes are defined. 
+3) If a member of set is given as an input, then one valid and 
+   one invalid equivalence class is defined. 
+4) If Boolean no. is given as an input condition, then one valid 
+   and one invalid equivalence class is defined. 
+
+https://www.geeksforgeeks.org/equivalence-partitioning-method/
+

@@ -1,0 +1,55 @@
+Scrum
+=======
+Scrum is a framework for agile software development that involves 
+iterative cycles called sprints, daily stand-up meetings, and a 
+product backlog that is prioritized by the customer
+
+Scrum is an Agile project management methodology involving a 
+small team led by a Scrum master, whose main job is to remove all 
+obstacles to getting work done. Work is done in short cycles called sprints, 
+and the team meets daily to discuss current tasks and any roadblocks that need 
+clearing
+
+roles and responsibilities of scrum master -
+
+1) standups
+2) Iteration/sprint planning meetings
+3) Sprint reviews
+4) Retrospectives
+5) Board administration
+6) 1 on 1s
+7) Internal Consulting
+8) Reporting
+9) Blockers
+10) Busy work
+
+https://www.atlassian.com/agile/scrum/scrum-master#:~:text=As%20the%20title%20implies%2C%20the,team%20through%20the%20scrum%20framework.
+
+product owner
+===============
+product owner is accountable for representing the customer to a Scrum team 
+and maximizing the value of the products created by a Scrum team
+
+roles and responsibilities -
+
+1) Communicating the vision
+2) Managing the product backlog
+3) Prioritizing needs
+4) Participating in Scrum events
+5) Evaluating feedback at each iteration
+
+https://www.lucidchart.com/blog/product-owner-roles-and-responsibilities
+
+ 
+sprint planning execute and review
+===================================
+The purpose of sprint planning is to define what can be delivered in the sprint 
+and how that work will be achieved. Sprint planning is done in collaboration 
+with the whole scrum team
+
+In scrum, the sprint is a set period of time where all the work is done.
+
+Sprint planning requires some level of estimation. The team needs to define 
+what can or cannot be done in the sprint
+
+

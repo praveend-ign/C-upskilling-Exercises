@@ -1,0 +1,76 @@
+
+MISRA C is a set of software development guidelines for the 
+C programming language developed by The MISRA Consortium.
+Its aims are to facilitate code safety, security, portability 
+and reliability in the context of embedded systems, specifically 
+those systems programmed in ISO C / C90 / C99
+
+MISRA is a set of coding guidelines and standards for C/C++, released
+in 1998 by the Motor Industry Software Reliability Association. The 
+standards provide a subset of the C and C++ languages for use in 
+safety-critical applications. The guidelines include over 140 rules 
+for MISRA–C and over 220 rules for MISRA–C++, that cover code safety, 
+portability, and reliability issues that haunt embedded systems developers. 
+Again, it has been widely adopted for safety-critical development in 
+industries outside of automotive, such as telecom, aerospace, defense, 
+railroad and medical.
+
+guidelines categories -
+
+Every MISRA C guideline is given a single category of 
+“mandatory”, “required” or “advisory”, whose
+meanings are described below
+
+compliance -
+
+In order to ensure that code complies with all of the 
+MISRA C guidelines, a compliance matrix should be
+produced. This matrix lists each guideline and indicates 
+how it is to be checked 
+
+
+examples of language constructs prohibited or restricted -
+
+/* Non-compliant - s is not const-qualified */
+char *s = "string";
+
+/* Compliant - p is const-qualified; additional qualifiers are permitted */
+const volatile char *p = "string";
+extern void f1 ( char *s1 );
+extern void f2 ( const char *s2 );
+void g ( void )
+{
+ f1 ( "string" ); /* Non-compliant - parameter s1 is not
+                   * const-qualified */
+ f2 ( "string" ); /* Compliant */
+}
+char *name1 ( void )
+{
+ return ( "MISRA" ); /* Non-compliant - return type is not
+                      * const-qualified */
+}
+const char *name2 ( void )
+{
+ return ( "MISRA" ); /* Compliant */
+}
+
+
+Misra C with ISO 26262 standards -
+
+following rules are recommended in both Misra C and ISO 26262
+
+1) one entry and one exit
+2) no dynamic objects or variables, or else online test during
+   their creation
+3) initialization of variables
+4) No multiple use of variable names
+5) Avoid global variables or else justify their usage
+6) Restricted use of pointers
+7) No implicit type conversions
+8) No hidden data flow or control flow
+9) No unconditional jumps
+10) No recursions
+
+https://www.his-conference.co.uk/session/misra-c-iso-26262
+
+

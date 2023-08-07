@@ -1,0 +1,22 @@
+
+Q) How can you use boundary value analysis and equivalence
+   class partitioning to test the interoperability and 
+   compatibility of an embedded software component or
+   system with other components or systems -
+
+Compatibility testing - 
+is one of the several types of software testing performed on a 
+system that is built based on certain criteria and which has 
+to perform specific functionality in an already existing 
+setup/environment. Compatibility of a system/application being 
+developed with, for example, other systems/applications, OS, 
+Network, decide many things such as use of the system/application 
+in that environment, demand of the system/application etc.
+
+Interoperability testing - 
+involves testing whether a given software program or technology 
+is compatible with others and promotes cross-use functionality. 
+This kind of testing is now important as many different kinds of 
+technology are being built into architectures made up of many 
+diverse parts, where seamless operation is critical for developing 
+a user base

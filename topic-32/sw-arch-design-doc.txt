@@ -1,0 +1,126 @@
+Q) Benefits of layered architecture in embedded software -
+
+Each layer provides an abstraction of the below layer, 
+to the above layer.
+layered architecture has some level of separation in each 
+layer which makes it easier to reuse the above layer
+
+BSP - provides low level access to hardware
+HAL - provides a standardized interface for 
+      communicating with a software component or
+      service of an embedded system. The HAL 
+      provides a high-level interface for 
+      accessing the hardware and abstracts away
+      the low-level details of the hardware, 
+      making it easier for the software to
+      interact with the hardware
+
+https://asogwa001.hashnode.dev/embedded-software-architecture-overview
+
+Q) How can you verify that software design documents are consistent with
+   the software architecture documents and the requirements 
+   specifications - 
+
+A software design document on the other hand includes all the details 
+regarding the description of the software, how its features will be built, 
+or how the product will be designed to meet the specific set of technical 
+requirements. There are several pointers related to the design of your 
+software that you need to include in a software design document such as -
+
+1) The overall overview of the software development project mainly focused 
+   on the design and the stakeholders along with the relevant information. 
+   This section should also include the title and the compact summary with the 
+   relevant information in simple-to-understand language so that everyone can 
+   utilize it.
+2) The context of your software development project and how to build the software 
+   efficiently to make it purposeful. This section of the software design document 
+   also specifies the key and useful metrics to measure the success of the 
+   software from various aspects.
+3) A comprehensive and relevant technical solution with proper details that can 
+   guide the software developers through the right steps to develop the right product.
+4) A detailed timeline guide that includes the milestones, time frame, and other 
+   relevant details so that the project team can know when and how to achieve 
+   the same on time.
+
+https://www.thirdrocktechkno.com/blog/software-design-document-vs-software-requirement-specification/
+
+Q) What are some common design patterns that can be applied to embedded
+   software development and testing -
+
+Cyclic Executive Pattern – Schedule threads in an infinite loop
+Static Priority Pattern – Schedule threads by priority
+Critical Region Pattern – Protect resources by disabling task switching
+Guarded Call Pattern – Protect resources through mutex semaphores
+Queuing Pattern – Serialize access through queuing messages
+Rendezvous Pattern – Coordinate complex task synchronization
+Simultaneous Locking Pattern – Avoid deadlock by locking resources together
+Ordered Locking Pattern – Avoid deadlock by locking resources only in specific orders
+
+Q) How can you use UML diagrams to document the software design and
+   architecture -
+
+uml architecture provides a collection of several views. it can be best
+understood as a collection of five views -
+
+Use case view
+Design view
+Implementation view
+Process view
+Development view
+
+We use UML diagrams to portray the behavior and structure of a system
+
+four common types of UML diagrams to document software component 
+architectures: component diagrams, deployment diagrams, sequence diagrams,
+and state diagrams.
+
+The uml diagrams are categorized into structural diagrams,
+behavioral diagrams and also interaction overview diagrams
+
+https://www.javatpoint.com/uml-diagrams
+
+uml - Behaviour diagram
+    - structural diagram
+
+behaviour diagram - activity diagram
+                  - state machine diagram
+ 		  - use case diagram
+		  - interaction diagram
+
+structure diagram - class diagram
+		  - component diagram
+		  - object diagram
+		  - composite structure diagram
+		  - deployment diagram
+		  - package diagram
+
+interaction diagram - communication diagram
+		    - interaction overview diagram
+		    - sequence diagram
+		    - timing diagram
+
+Q) What are some of the challenges that embedded software developers
+   and testers face when designing and implementing software for
+   resource constrained devices -
+
+in general following are challenges of embedded software development
+and testing 
+
+stability 
+safety 
+security
+launch phase
+design limitations
+compatibility and integrity
+
+
+
+ challenges for resource constrained devices
+
+code size
+speed of execution
+adding new features
+expertise of development and testing
+
+https://www.infopulse.com/blog/challenges-and-issues-of-embedded-software-development
+

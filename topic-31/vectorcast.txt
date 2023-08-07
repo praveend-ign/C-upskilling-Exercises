@@ -1,0 +1,75 @@
+
+Vectorcast
+===========
+Key features of VectorCAST for C and C++ unit and integration testing include:
+
+Complete test-harness construction for C and C++ unit and integration testing – no writing of test code
+Stub and driver code built automatically
+Test execution from GUI or scripts
+Code-coverage analysis with optimization for embedded systems
+On-target and simulator test execution
+Code-complexity analysis highlights high risk code
+Automatic test case generation based on decision paths
+Test execution playback to assist in debugging Integrated with leading static analysis tools
+
+Q) How does vectorcast/C++ generate test cases automatically based on decision paths -
+
+VectorCAST/C++ provides an integrated code coverage utility that allows 
+you to gauge the effectiveness of your component testing by reporting 
+on the source code statements or decision points exercised during 
+individual or multiple test runs.
+
+VectorCAST/C++ supports for automatic generation of test cases with variety 
+forms of input and output parameters, users don’t need to write test code, 
+can completely automatically set parameters through GUI windows, and can also 
+create test case automatically based on different coverage requirements to meet 
+coverage requirement as much as possible, including basis path, equivalence classes, 
+boundary values, and MC/DC test cases, satisfies the requirements of ASIL D level in 
+ISO26262. For basis path coverage, VectorCAST can automatically generate test case 
+with 90% to 100% coverage. For MC/DC, VectorCAST can analyzes code structure 
+based on MC/DC coverage, and then automatically generate test case. 
+Meanwhile, users can also analyzes code structure and create test case 
+according to MC/DC metrics.
+
+Q) How does Vectorcast/C++ support testing on host, simulator, or embedded target
+   platforms -
+
+VectorCAST/RSP is a real-time package in VectorCAST tool suite. Combine with 
+VectorCAST/RSP, VectorCAST/C++ can support real-time application testing in 
+embedded target boards or simulators. The test cases are designed 
+on the host computer and run in the embedded target environment, and then 
+realizing the real-time testing in embedded target environment.
+
+Q) How does Vectorcast/C++ measure code coverage and code complexity -
+
+VectorCAST uses the McCabe Cyclomatic Complexity algorithm to 
+calculate the number of Basis Paths (using V(g) for the representation) 
+through a subprogram. This is a fairly straightforward algorithm that 
+basically counts the branches in a subprogram.
+
+VectorCAST/QA generates code coverage artifacts during functional or system
+test of C, C++ or Ada
+
+Q) How does VectorCast/C++ integrate with requirements traceability tools and
+   support various safety standards -
+
+VectorCAST Requirements Gateway 3.0 (RGW 3.0) provides traceability
+between software requirements and test cases and allows the import 
+and mapping of requirements to test cases
+
+https://cdn.vector.com/cms/content/products/VectorCAST/Docs/Datasheets/English/VectorCAST_General_FactSheet_EN.pdf
+
+The VectorCAST test automation platform supports the development of 
+safety-critical software projects up to the highest criticality levels 
+in all industries. This makes it a perfect choice for testing software in the 
+areas of ADAS, autonomous driving, control systems, HIL systems, and other 
+related software.
+
+The VectorCAST Validation Kit for ISO 26262 is a package of certification 
+artifacts and tools. In addition to the Safety Manual, it provides
+a tool qualification test suite that help developers who use the VectorCAST 
+family of products on projects that must comply with the ISO26262 standard. 
+
+https://cdn.vector.com/cms/content/products/VectorCAST/Docs/Whitepapers/English/VectorCAST_Tool_Qualification_for_ISO_26262.pdf
+
+

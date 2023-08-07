@@ -1,0 +1,114 @@
+
+ISO 26262 is an international functional safety standard for the development of 
+electrical and electronic systems in road vehicles. It defines guidelines to 
+minimize the risk of accidents and ensure that automotive components perform 
+their intended functions correctly and at the right time
+
+ISO 26262 provides a comprehensive approach for the functional safety 
+of the whole system
+
+ISO 26262 is highly adopted standard is a Functional Safety standard titled 
+“Road vehicles – Functional safety”, or: ISO 26262. It applies to passenger 
+vehicles up to 3500 kilograms (7716 pounds) and addresses potential safety 
+vulnerabilities in electronic and electrical systems, like anti-lock brakes, 
+advanced driver assistance systems (ADAS), engine control units, and
+digital instrument clusters.
+
+ISO 26262 includes following phases :-
+
+Planning - In this phase, the safety requirements for the system are 
+           defined, and a safety plan is developed.
+
+Analysis - In this phase, the system is analyzed to identify hazards 
+           and potential failure modes.
+
+Design and Implementation - In this phase, the system is designed and 
+implemented to meet the safety requirements defined in the planning phase 
+and to eliminate or mitigate the hazards identified in the analysis phase.
+
+Verification - In this phase, the system is tested to ensure that it meets 
+               the safety requirements and that any hazards have been 
+               eliminated or mitigated.
+
+Validation - In this phase, the system is tested in its intended environment 
+             to ensure that it behaves as expected.
+
+Production, Operation and Decommissioning - In this phase, the safety requirements 
+                                   are maintained and the system is decommissioned. 
+
+
+
+ISO26262 is basically relying on a use case analysis -
+
+
+analysis of use cases ----------> Tool impact --------> Tool Error detection ----------> Tool confidence level
+
+Tool impact - If a tool can „introduce or fail to detect“ errors, the tool 
+              actually will have an impact on the final product quality. 
+              This is then called TI2. If a tool does not play any role 
+              regarding the final product quality, there is no tool impact (TI1)
+
+Tool Error detection - The second step in the process is the evaluation of the 
+                       tool error detection level. For tools that can have an 
+                       impact on the safety of the final product (TI2), we just 
+                       need to ask one simple question: Assuming the tool has a 
+                       malfunction, what is the likelihood of detecting it later 
+                       in the process. If there is a high likelihood (TD1), we don’t 
+                       need to have a high confidence in the tool behaving correctly. 
+                       If we would not detect a tool malfunction in subsequent 
+                       process steps (TD2, TD3), we need to have a high confidence 
+                       in the correct tool behavior. 
+	
+ISO 26262 defines 3 levels of tool confidence
+
+TCL1: This is the lowest tool confidence level. The tool does not play an important 
+role regarding the quality of our final product. Therefore, we do not need to have 
+a high confidence in the correct tool behavior from an ISO 26262 view. 
+A tool qualification is not needed.
+
+TCL2/3: This corresponds to a medium/high tool confidence level. The tool plays an 
+important role regarding the quality of our final product, so we need to have a 
+certain level of confidence and therefore need to perform a tool qualification 
+to demonstrate the reliability of that tool.
+
+
+======================================================================
+Additional notes -
+
+Some of the challenges of implementing ISO 26262 include:
+
+Complexity. The standard is very detailed and covers a wide range of topics, 
+            making it difficult to fully understand and implement.
+
+Time and Cost. Meeting the requirements of the standard can be time-consuming and 
+               costly, and may require significant changes to existing development processes.
+
+Testing and Validation. Ensuring that a system meets the requirements of the standard 
+                        can be challenging, as it may require extensive testing and validation.
+
+Risk Assessment. Identifying and assessing potential hazards and risks can be 
+                 difficult, especially in complex systems.
+
+Traceability. Maintaining traceability of requirements and design decisions throughout 
+              the development process can be difficult, especially in large and complex projects.
+
+Tool Support. There may be a lack of tool support for certain aspects of the standard, 
+              making it difficult to fully automate the compliance process.
+
+Expertise. Having the necessary expertise and resources to fully implement the 
+           standard can be a challenge, as it requires specialized knowledge of functional 
+           safety and automotive systems.
+
+
+Benefits of ISO 26262:
+
+It provides detailed guidelines for concurrent development and testing of 
+hardware and software, recognizing that they must be tested together to 
+achieve optimal safety
+
+Adopting ISO 26262 helps ensure that the safety of car components is 
+considered from the beginning of the development process, from initial
+risk assessment to final decommissioning
+
+
+

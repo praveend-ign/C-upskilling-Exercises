@@ -1,0 +1,35 @@
+
+ASIL (Automotive Safety Integrity Level)
+=========================================
+ASIL refers to Automotive Safety Integrity Level. It is a risk classification 
+system defined by the ISO 26262 standard for the functional safety of
+road vehicles.
+
+There are four ASILs identified by ISO 26262―A, B, C, and D. 
+ASIL A represents the lowest degree and ASIL D represents the highest degree 
+of automotive hazard.
+
+Systems like airbags, anti-lock brakes, and power steering require an 
+ASIL-D grade - the highest rigor applied to safety assurance -
+because the risks associated with their failure are the highest. 
+On the other end of the safety spectrum, components like rear lights 
+require only an ASIL-A grade. Head lights and brake lights generally would 
+be ASIL-B while cruise control would generally be ASIL-C.
+
+3 variables that are measured to determine the ASIL of a potential hazard -
+
+ASILs are established by performing hazard analysis and risk assessment. 
+For each electronic component in a vehicle, engineers measure 
+three specific variables:
+
+1) Severity (the type of injuries to the driver and passengers)
+2) Exposure (how often the vehicle is exposed to the hazard)
+3) Controllability (how much the driver can do to prevent the injury)
+
+ASIL classification dependency on context and interpretation - 
+
+see - What are the challenges of ASILs? section in below link
+
+https://www.synopsys.com/automotive/what-is-asil.html
+
+

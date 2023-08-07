@@ -1,0 +1,50 @@
+Cert C coding standard
+========================
+The SEI CERT Coding Standards are software coding standards developed by the 
+CERT Coordination Center to improve the safety, reliability, and security of 
+software systems. Individual standards are offered for C, C++, Java, 
+Android OS, and Perl.
+This coding standard consists of rules and recommendations. 
+
+Q) difference between Rule and Recommendation -
+
+Rules are meant to provide normative requirements for code;
+recommendations are meant to provide guidance that, 
+when followed, should improve the safety, reliability, 
+and security of software systems.
+
+https://wiki.sei.cmu.edu/confluence/display/c/Rules+versus+Recommendations
+
+Q) How to avoid buffer overflow vulnerabilities by following ARR30 rule - 
+
+The C Standard identifies the following distinct situations in which 
+undefined behavior (UB) can arise as a result of invalid pointer operations:
+
+1) Addition or subtraction of a pointer into, or just beyond, an array object 
+   and an integer type produces a result that does not point into, 
+   or just beyond, the same array object.
+2) Addition or subtraction of a pointer into, or just beyond, an array object 
+   and an integer type produces a result that points just beyond the array object 
+   and is used as the operand of a unary * operator that is evaluated.
+3) An array subscript is out of range, even if an object is apparently accessible 
+   with the given subscript, for example, in the lvalue expression a[1][7] given 
+   the declaration int a[4][5]).
+4) An attempt is made to access, or generate a pointer to just past, a flexible 
+   array member of a structure when the referenced object provides no elements 
+   for that array.
+
+https://wiki.sei.cmu.edu/confluence/display/c/ARR30-C.+Do+not+form+or+use+out-of-bounds+pointers+or+array+subscripts
+
+Q) Benefits of using code sight IDE plugin with coverity for CERT compliance ?
+
+ 1) it helps in addressing security defects in real time as we code.
+ 2) Code Sight quickly and accurately detects security defects in 
+    application code and infrastructure-as-code files as you open, edit, and 
+    save them, so you can stay focused and fix security bugs before you check in
+ 3) Code Sight gives you complete visibility into security risks in both direct 
+    and transitive open source dependencies, so you can select the most secure 
+    components and versions to use and avoid incompatible licenses 
+ 4) When issues are found, Code Sight shows you exactly what code change or 
+    component upgrade is needed, and it can often make the fix automatically 
+    for you with just one click.
+ 

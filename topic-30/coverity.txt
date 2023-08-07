@@ -1,0 +1,43 @@
+Coverity
+=========
+
+The Coverity could be a quick, accurate, and extremely scalable static analysis (SAST) 
+resolution that helps development and security groups address security and quality defects 
+early within the code development life cycle (SDLC), 
+track and manage risks across the applying portfolio,and guarantee 
+compliance with security and secret writing standards.
+
+benefits of coverity -
+
+Coverity SAVE showing intelligence tests code changes with a 
+deep understanding of behavior and criticality to accurately 
+determine laborious to identify nevertheless doubtless crash 
+inflicting quality defects in C/C++, as well as concurrency 
+defects, improper use of memory and null
+
+Q) How coverity can be integrated with CI/CD pipeline -
+
+Coverity may be integrated into a GitLab CI/CD pipeline by 
+calling the Coverity CLI from your pipeline configuration.
+
+    The Synopsys GitLab integration supports the following capabilities:
+    Trigger security testing from a GitLab CI/CD workflow
+    Find and fix security issues via annotated pull requests
+    Manage security issues through GitLab Security Dashboards and Security Center
+    Prevent merge if security policy is not met
+
+Q) access and manage results of coverity analysis using coverity scan
+
+ Coverity Scan is a service by which Synopsys provides the results of analysis 
+ on open source coding projects to open source code developers that have 
+ registered their products with Coverity Scan.
+
+ Synopsys offers the results of the analysis completed by Coverity Quality Advisor 
+ on registered projects at no charge to registered open source developers.
+
+  https://scan.coverity.com/faq
+
+
+
+
+

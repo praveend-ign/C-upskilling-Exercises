@@ -1,0 +1,81 @@
+what is an agile
+==================
+An agile software development process always starts by defining the users 
+for a particular product and documenting a vision statement for the scope 
+of problems, opportunities, and values to be addressed.
+
+Agile is an approach to software development that seeks the continuous delivery 
+of working software created in rapid iterations.
+
+Benefits of Agile
+==================
+1) In Agile methodology the delivery of software is continuous
+
+2) If the customers has any feedback or any change in the feature then 
+   it can be accommodated in the current release of the product
+
+3) Customers can have a look of the working feature which fulfilled 
+   their expectations.
+
+4) In this methodology attention is paid to the good design of the product.
+
+5) Changes in the requirements are accepted even in the later stages 
+   of the development 
+
+Disadvantages of Agile
+=======================
+1) In Agile methodology the documentation is less
+2) Sometimes in Agile methodology the requirement is not very clear hence 
+   it’s difficult to predict the expected result.
+3) In few of the projects at the starting of the software development life cycle 
+   it’s difficult to estimate the actual effort required.
+4) For complex projects, the resource requirement and effort are difficult 
+   to estimate.
+
+requirements and specifications in agile development process
+=============================================================
+if the preparation of SRS document contains following mentioned details then
+it is said to be clear and consistent.
+  
+The SRS document can be said to fulfill four D’s –
+
+Define what the product’s purpose is
+Describe the product being built
+Detail the system and the user requirements
+Deliver it to stakeholders for their approval
+
+components of an SRS -
+
+Typically it consists of 
+
+An outline of the purpose the software is meant to serve.
+A general description of the software itself.
+The details of the functionality of the software are based on the needs of the stakeholders.
+The required performance of the software in a production scenario.
+The non-functional requirements to be covered as part of stakeholder expectations.
+The interaction of the software with external interfaces like hardware and/or third-party systems.
+The limitations of the product are based on the design constraints and the environment that it operates.
+
+
+17 agile metrics to measure -
+
+lead time
+cycle time
+velocity
+sprint burndown
+cumulative flow diagram
+code coverage
+static code analysis
+failed deployments
+valued delivered
+escaped defects
+net prompter score
+happiness
+feature lead time
+team morale
+story throughput
+quality intelligence
+epic and release burndown 
+
+https://www.indeed.com/career-advice/career-development/agile-metrics
+

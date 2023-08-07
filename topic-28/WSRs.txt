@@ -1,0 +1,10 @@
+Weekly Status Report
+======================
+A weekly status report, also known as a weekly check-in, is a communication tool 
+that project managers use to keep tabs on their employees’ work experiences.
+
+In a daily standup meeting, team members all meet together at the same time 
+each day to talk about their completed tasks, future goals and blockers. 
+Unlike a daily standup, weekly status reports happen only once a week. 
+They are automated, more reflective and are often more emotional but can also 
+address project-based concerns as well

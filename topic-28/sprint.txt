@@ -1,0 +1,22 @@
+sprint goal
+============
+A sprint goal is a brief explanation of what the team plans to achieve 
+during the course of an Agile sprint. It is a tangible goal written together 
+by the team and Product Owner and is time-bound to the duration of the sprint
+
+sprint goals should be specific and time-bound by the sprint, while still 
+adding value to the client. The sprint goal defines your key objective while the 
+specific tasks and expected outcomes of the sprint should be outlined by the 
+sprint backlog.
+
+effort and complexity of sprint backlog tasks -
+
+1) keep track of its progress and status throughout the sprint
+2) The main idea is to visualize the work flow, identify and 
+   resolve any impediments, and communicate any changes or issues 
+   to the team and stakeholders
+3) review and update your sprint backlog regularly, as you complete, 
+   add, or modify tasks, or as you receive new feedback or requirements.
+
+
+

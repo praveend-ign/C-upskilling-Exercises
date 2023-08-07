@@ -1,0 +1,19 @@
+
+Q) How can you use boundary value analysis and equivalence class
+   partitioning to design test cases that cover both 
+   functional and non-functional requirements of an
+   embedded software component -
+
+Functional testing usually tests the business functionality 
+the application under development is intended to solve, whereas 
+non-functional testing is done to test user-friendly, 
+desirable system requirements of the user.
+
+equivalence partitioning and boundary value analysis are used
+most commonly for functional testing.
+
+by taking more that one input from each partition class,
+such that some of the test cases of non-functional testing
+could also be covered
+
+https://www.ianswer4u.com/2016/11/functional-and-non-functional-software.html

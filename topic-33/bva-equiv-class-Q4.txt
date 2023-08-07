@@ -1,0 +1,29 @@
+
+Q) How can you use boundary value analysis and 
+   equivalence class partitioning to test the
+   robustness and reliability of an embedded 
+   software component or system against invalid
+   or unexpected inputs or outputs -
+
+Robustness - a term used to describe the ability of a program 
+             to resist crashing due to incorrect input or incorrect 
+             intermediate results.
+
+robustness testing using Boundary value analysis -
+
+add
+ 1) value slightly larger than maximum - "max+"
+ 2) value slightly smaller than minimum - "min-"
+    and generate test cases as for BVA.
+
+ example scenario -
+What happens if a physical quantity exceeds its maximum?
+  - load capacity of an elevator
+  - date, e.g. May 32
+  - temperature
+
+adding robustness to equivalence class testing -
+
+Equivalence Class testing - classes only for the valid inputs.
+
+Robust Equivalence Class testing - classes for valid inputs & invalid inputs

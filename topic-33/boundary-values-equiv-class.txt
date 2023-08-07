@@ -1,0 +1,80 @@
+
+Boundary value and Equivalence class partitioning
+=================================================
+
+Practically, due to time and budget considerations, it is not possible to 
+perform exhausting testing for each set of test data, especially when 
+there is a large pool of input combinations.
+
+We need an easy way or special techniques that can select test cases 
+intelligently from the pool of test-case, such that all test scenarios are 
+covered. We use two techniques – Equivalence Partitioning & Boundary Value 
+Analysis testing techniques to achieve this.
+
+Equivalence Partitioning or Equivalence Class Partitioning is type of black box 
+testing technique which can be applied to all levels of software testing like 
+unit, integration, system, etc. In this technique, input data units are 
+divided into equivalent partitions that can be used to derive test cases 
+which reduces time required for testing because of small number of test cases.
+
+It divides the input data of software into different equivalence data classes.
+You can apply this technique, where there is a range in the input field.
+
+Boundary testing is the process of testing between extreme ends or boundaries 
+between partitions of the input values.
+
+So these extreme ends like Start- End, Lower- Upper, Maximum-Minimum, 
+Just Inside-Just Outside values are called boundary values and the 
+testing is called “boundary testing”.
+
+The basic idea in normal boundary value testing is to select input variable values at their:
+1) Minimum
+2) Just above the minimum
+3) A nominal value
+4) Just below the maximum
+5) Maximum
+
+=> In Boundary Testing, Equivalence Class Partitioning plays a good role
+=> Boundary Testing comes after the Equivalence Class Partitioning.
+
+https://www.guru99.com/equivalence-partitioning-boundary-value-analysis.html
+
+Q) advantages and disadvantages of equivalence partitioning -
+
+        advantages                          	   disadvantages
+1) it is process oriented             	  1) all necessary inputs may not cover
+2) we can achieve the minimum 		  2) This technique will not consider the 
+   test coverage			     condition for boundary value analysis 
+3) it helps to decrease the general	  3) The test engineer might assume that the
+   test execution time and also              output for all data set is right, which
+   reduce the set of test data		     leads to the problem during testing
+					     process
+
+advantages of Boundary value analysis -
+ 
+BVA can help you reduce the number of test cases needed to cover 
+the input domain, as you only need to test a few values at each 
+boundary instead of testing every possible value. This can save 
+you time and resources, as well as make your test cases more 
+manageable and maintainable. BVA can also help you detect errors 
+that might otherwise be overlooked, such as off-by-one errors, 
+overflow errors, or boundary condition errors. BVA can improve 
+the quality and reliability of your software, 
+as it can reveal defects that might affect the functionality, 
+performance, or security of your application.
+
+disadvantages of Boundary value analysis -
+
+BVA is not a perfect technique, and it has some limitations and challenges. 
+BVA might not be suitable for testing complex input domains that have 
+multiple boundaries, interactions, or dependencies. BVA might also miss 
+some errors that occur in the middle of the input domain, or that are caused 
+by other factors than the input values, such as logic, data, or environment. 
+BVA might also require some assumptions or estimations about the input domain, 
+which might not be accurate or consistent. 
+BVA might also depend on the quality and completeness of the specifications
+and requirements, which might not be clear or available
+
+https://www.linkedin.com/advice/0/what-benefits-drawbacks-using-boundary-value-analysis
+
+Q) 
